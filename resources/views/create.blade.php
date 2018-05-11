@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		<form action ="{{ URL('users') }}{{ isset($user) ? '/'$user->id : '' }}" method="post">
+		<form action ="{{ URL('users') }}{{ isset($user) ? '/' . $user->id : '' }}" method="post">
 			<div class ="form-group">
 				{{csrf_field() }}
 				@if (isset($user))
