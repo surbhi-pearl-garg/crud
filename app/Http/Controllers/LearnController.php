@@ -57,7 +57,7 @@ class LearnController extends Controller
     public function show($id)
     {
          $data['users']=User::find($id);
-        return view('create',$data);
+        dd($data);
  
     }
 
@@ -69,7 +69,8 @@ class LearnController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user']=User::find($id);
+        return view('create',$data);
     }
 
     /**
@@ -114,12 +115,12 @@ class LearnController extends Controller
         $user = User::find($id);
         if($user) {
             $user->destroy();
-            $msg = "Hapus user Bershill";
+            $msg = "Hapus user Bershill.";
         } else {
            $msg = "Hapus user gagal ";
         }
         return redirect()
             ->back()
-            ->withSuccess($msg);
+            ->withSuccess('success',$msg);
     }
 }

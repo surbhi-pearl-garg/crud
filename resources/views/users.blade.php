@@ -32,8 +32,10 @@
 										<form action="{{ URL('users/'.$user->id) }}" method="post">
 											{{ csrf_field() }}
 											{{ method_field('DELETE') }}
+											
 										<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
 									</form>
+									<a href="{{ URL('users/' .$user->id ) }}" class="btn btn-xs btn-primary">show</a>
 									</center>
 								</td>
 							</tr>
