@@ -14,8 +14,8 @@ class LearnController extends Controller
      */
     public function index()
     {
-        $data['users']=User::all();
-        return view('users',$data);
+        $data = [ 'users' => User::all() ];
+        return view('users', $data);
     }
 
     /**
@@ -36,7 +36,7 @@ class LearnController extends Controller
      */
     public function store(Request $request)
     {
-        $user=[
+        $user = [
             'name' => $request->nama,
             'email' => $request->email,
             'password' => Hash::make($request->nama),
@@ -111,15 +111,15 @@ class LearnController extends Controller
      */
     public function destroy($id)
     {
-         $user = User::find($id);
-        if($user){
+        $user = User::find($id);
+        if($user) {
             $user->destroy();
             $msg = "Hapus user Bershill";
-        }
-        else
+        } else {
            $msg = "Hapus user gagal ";
+        }
+        return redirect()
+            ->back()
+            ->withSuccess($msg);
     }
- return redirect()
-        ->back()
-        ->withSuccess($msg);
 }
